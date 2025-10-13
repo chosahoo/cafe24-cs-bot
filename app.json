@@ -1,0 +1,97 @@
+{
+  "app_id": "cafe24-cs-bot",
+  "app_name": "CS 자동답변 봇",
+  "app_version": "1.0.0",
+  "app_description": "AI를 활용한 고객 문의 자동 답변 시스템",
+  "app_category": "customer_service",
+  "app_icon": "https://your-domain.com/icon.png",
+  "app_screenshots": [
+    "https://your-domain.com/screenshot1.png",
+    "https://your-domain.com/screenshot2.png",
+    "https://your-domain.com/screenshot3.png"
+  ],
+  "developer": {
+    "name": "chosahoo",
+    "email": "your-email@example.com",
+    "website": "https://your-website.com"
+  },
+  "permissions": [
+    "board_read",
+    "board_write",
+    "board_reply",
+    "customer_read"
+  ],
+  "webhook_url": "https://your-domain.com/webhook",
+  "redirect_uri": "https://your-domain.com/auth/callback",
+  "install_url": "https://your-domain.com/install",
+  "uninstall_url": "https://your-domain.com/uninstall",
+  "features": [
+    "자동 답변 생성",
+    "반자동 답변 제안",
+    "매뉴얼 기반 답변",
+    "실시간 모니터링",
+    "답변 품질 검증",
+    "통계 및 리포트"
+  ],
+  "pricing": {
+    "type": "subscription",
+    "plans": [
+      {
+        "name": "베이직",
+        "price": 9900,
+        "currency": "KRW",
+        "billing_cycle": "monthly",
+        "features": [
+          "월 100회 답변 생성",
+          "기본 매뉴얼 관리",
+          "이메일 지원"
+        ]
+      },
+      {
+        "name": "프로",
+        "price": 19900,
+        "currency": "KRW",
+        "billing_cycle": "monthly",
+        "features": [
+          "월 500회 답변 생성",
+          "고급 매뉴얼 관리",
+          "실시간 모니터링",
+          "통계 리포트",
+          "우선 지원"
+        ]
+      },
+      {
+        "name": "엔터프라이즈",
+        "price": 49900,
+        "currency": "KRW",
+        "billing_cycle": "monthly",
+        "features": [
+          "무제한 답변 생성",
+          "커스텀 AI 모델",
+          "API 연동",
+          "전담 매니저 지원"
+        ]
+      }
+    ]
+  },
+  "support": {
+    "email": "support@your-domain.com",
+    "phone": "+82-2-0000-0000",
+    "hours": "평일 09:00-18:00",
+    "documentation": "https://your-domain.com/docs"
+  },
+  "privacy_policy": "https://your-domain.com/privacy",
+  "terms_of_service": "https://your-domain.com/terms",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-01-01",
+      "changes": [
+        "초기 버전 릴리스",
+        "자동/반자동 답변 기능",
+        "매뉴얼 관리 기능",
+        "실시간 모니터링"
+      ]
+    }
+  ]
+}
