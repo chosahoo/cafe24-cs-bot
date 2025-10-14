@@ -73,22 +73,22 @@ function initializeApp() {
         });
     }
     
-    // 폼 제출 이벤트 리스너
-    const csManualForm = document.getElementById('cs-manual-form');
-    if (csManualForm) {
-        csManualForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            uploadCSManual();
-        });
-    }
+    // 폼 제출 이벤트 리스너 (제거 - onclick으로 대체)
+    // const csManualForm = document.getElementById('cs-manual-form');
+    // if (csManualForm) {
+    //     csManualForm.addEventListener('submit', function(e) {
+    //         e.preventDefault();
+    //         uploadCSManual();
+    //     });
+    // }
     
-    const sizechartForm = document.getElementById('sizechart-form');
-    if (sizechartForm) {
-        sizechartForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            uploadSizechart();
-        });
-    }
+    // const sizechartForm = document.getElementById('sizechart-form');
+    // if (sizechartForm) {
+    //     sizechartForm.addEventListener('submit', function(e) {
+    //         e.preventDefault();
+    //         uploadSizechart();
+    //     });
+    // }
 }
 
 // 섹션 표시
@@ -1313,8 +1313,13 @@ async function loadKeywordManuals() {
 
 // CS 메뉴얼 업로드
 async function uploadCSManual() {
+    console.log('[DEBUG] uploadCSManual 함수 호출됨');
+    
     const title = document.getElementById('cs-manual-title').value.trim();
     const file = document.getElementById('cs-manual-file').files[0];
+    
+    console.log('[DEBUG] 제목:', title);
+    console.log('[DEBUG] 파일:', file);
     
     if (!title || !file) {
         showAlert('제목과 파일을 모두 입력해주세요.', 'warning');
@@ -1338,12 +1343,12 @@ async function uploadCSManual() {
         
         if (result.success) {
             showAlert('CS 메뉴얼이 업로드되었습니다.', 'success');
-            closeModal('manualModal');
             document.getElementById('cs-manual-form').reset();
             loadManuals(); // 매뉴얼 목록 새로고침
             loadKeywordManuals(); // 키워드 매뉴얼 다시 로드
+            closeModal('manualModal'); // 성공 후에만 모달 닫기
         } else {
-            showAlert('CS 메뉴얼 업로드에 실패했습니다.', 'danger');
+            showAlert('CS 메뉴얼 업로드에 실패했습니다: ' + (result.message || '알 수 없는 오류'), 'danger');
         }
     } catch (error) {
         console.error('CS 메뉴얼 업로드 오류:', error);
@@ -1384,12 +1389,12 @@ async function uploadSizechart() {
         
         if (result.success) {
             showAlert('사이즈표가 업로드되었습니다.', 'success');
-            closeModal('manualModal');
             document.getElementById('sizechart-form').reset();
             loadManuals(); // 매뉴얼 목록 새로고침
             loadKeywordManuals(); // 키워드 매뉴얼 다시 로드
+            closeModal('manualModal'); // 성공 후에만 모달 닫기
         } else {
-            showAlert('사이즈표 업로드에 실패했습니다.', 'danger');
+            showAlert('사이즈표 업로드에 실패했습니다: ' + (result.message || '알 수 없는 오류'), 'danger');
         }
     } catch (error) {
         console.error('사이즈표 업로드 오류:', error);
@@ -1460,9 +1465,10 @@ function switchTab(tabName) {
     }
 }
 
-// 모달 외부 클릭 시 닫기
+// 모달 외부 클릭 시 닫기 (수정됨)
 document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('modal')) {
+    // 모달 배경(backdrop)을 클릭했을 때만 닫기
+    if (e.target.classList.contains('modal') && e.target === e.currentTarget) {
         e.target.classList.remove('show');
     }
 });
